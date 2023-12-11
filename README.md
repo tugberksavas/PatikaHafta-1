@@ -1,0 +1,1 @@
+PATİKA 1. HAFTA

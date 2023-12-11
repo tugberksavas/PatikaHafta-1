@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-//https://github.com/tugberksavas?tab=repositories
+//https://github.com/tugberksavas
 public class Main {
     public static void main(String[] args) {
 

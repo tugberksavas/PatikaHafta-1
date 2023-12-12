@@ -1,0 +1,1 @@
+Hava Sicakligina Göre Onerme

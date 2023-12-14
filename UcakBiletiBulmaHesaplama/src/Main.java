@@ -1,19 +1,23 @@
 import java.util.Scanner;
 
-//https://github.com/tugberksavas
-
 public class Main {
     public static void main(String[] args) {
-
+        System.out.println("Hello world!");
         Scanner input = new Scanner(System.in);
-        int km, yas, tip;
-        double tutar, topTutar = 0, indTutar, indYas, indGidisDonus;
-        boolean fiyat;
+
+        /*Normal Tutar = Mesafe * 0.10 = 1500 * 0.10 = 150 TL
+        Yaş İndirimi = Normal Tutar * Yaş İndirim Oranı = 150 * 0.10= 15 TL
+        İndirimli Tutar = Normal Tutar – Yaş İndirimi = 150 – 15 = 135 TL
+        Gidiş Dönüş Bilet İndirimi = İndirimli Tutar * 0.20 = 135 * 0.20 = 27 TL
+        Toplam Tutar = (135-27)* 2 = 216 TL
+
+         */
+
+        int km,yas,tip;
+        double normalTutar, topamTutar = 0, indirimliTutar, yasİndirimi, indGidisDonus;
 
         System.out.println("Ucak Bileti Hesaplama");
         System.out.println("");
-
-
 
         System.out.println("Mesafe km olarak giriniz: ");
         km = input.nextInt();
@@ -24,48 +28,36 @@ public class Main {
 
         System.out.println("Uçak Bileti Fiyatı Buldunuz");
 
-
-
         if (km > 0 && yas > 0 && (tip == 1 || tip == 2)) {
-            tutar = km * 0.10;
-
-            //Kişi 12 yaşından küçükse bilet fiyatı üzerinden %50 indirim uygulanır.
+            normalTutar = km * 0.10;
 
             if (yas < 12) {
-                indYas = tutar * 0.50;
-                indTutar = tutar - indYas;
-                indGidisDonus = tip == 2 ? indTutar * 0.20 : 0;
-                topTutar = (indTutar - indGidisDonus) * tip;
-                System.out.println("Toplam tutar: " + topTutar);
+                yasİndirimi = normalTutar * 0.50;
+                indirimliTutar = normalTutar - yasİndirimi;
+                indGidisDonus = tip == 2 ? indirimliTutar * 0.20 : 0;
+                topamTutar = (normalTutar - indGidisDonus) * tip;
+                System.out.println("Toplam tutar: " + topamTutar);
             }
-
-            //Kişi 12-24 yaşları arasında ise bilet fiyatı üzerinden %10 indirim uygulanır.
-
             else if (yas < 24) {
-                indYas = tutar * 0.10;
-                indTutar = tutar - indYas;
-                indGidisDonus = tip == 2 ? indTutar * 0.20 : 0;
-                topTutar = (indTutar - indGidisDonus) * tip;
-                System.out.println("Toplam tutar: " + topTutar);
+                yasİndirimi = normalTutar * 0.10;
+                indirimliTutar= normalTutar - yasİndirimi;
+                indGidisDonus = tip == 2 ? indirimliTutar * 0.20 : 0;
+                topamTutar = (indirimliTutar - indGidisDonus) * tip;
+                System.out.println("Toplam tutar: " + topamTutar);
             }
-
-            //Kişi 65 yaşından büyük ise bilet fiyatı üzerinden %30 indirim uygulanır.
-
             else if (yas < 65) {
-                indGidisDonus = tip == 2 ? tutar * 0.20 : 0;
-                topTutar = (tutar - indGidisDonus) * tip;
-                System.out.println("Toplam tutar: " + topTutar);
+                indGidisDonus = tip == 2 ? normalTutar * 0.20 : 0;
+                topamTutar = (normalTutar - indGidisDonus) * tip;
+                System.out.println("Toplam tutar: " + topamTutar);
             } else {
-                indYas = tutar * 0.30;
-                indTutar = tutar - indYas;
-                indGidisDonus = tip == 2 ? indTutar * 0.20 : 0;
-                topTutar = (indTutar - indGidisDonus) * tip;
-                System.out.println("Toplam tutar: " + topTutar);
+                yasİndirimi = normalTutar * 0.30;
+                indirimliTutar = normalTutar - yasİndirimi;
+                indGidisDonus = tip == 2 ? indirimliTutar * 0.20 : 0;
+                topamTutar = (indirimliTutar - indGidisDonus) * tip;
+                System.out.println("Toplam tutar: " + topamTutar);
             }
-        } else System.out.println("Hatalı veri girildi");
-
-        fiyat = ( topTutar>200)? true : false;
-        System.out.println(fiyat);
-
+        }else {
+            System.out.println("hatali giris yaptınız");
+        }
     }
 }

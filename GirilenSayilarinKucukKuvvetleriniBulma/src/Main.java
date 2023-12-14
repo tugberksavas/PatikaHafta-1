@@ -5,10 +5,10 @@ public class Main {
         Scanner input = new Scanner(System.in);
         int n;
 
-
+        System.out.println("Girdiğiniz sayıya kadar olan 4 ve 5'in kuvvetleri için;");
         System.out.print("Sayı giriniz: ");
         n=input.nextInt();
-        System.out.println("---------------------------");
+
 
         System.out.println("Girilen sayının 2'ün kuvvetleri");
 
